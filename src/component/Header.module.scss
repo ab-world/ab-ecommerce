@@ -1,0 +1,98 @@
+.container {
+    user-select: none;
+    background-color: var(--background);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 16px 0;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px;
+
+    .wrapper {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+}
+
+.buttonSection {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    a {
+        margin-left: 8px;
+        font-size: 12px;
+    }
+}
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logoView {
+        width: 200px;
+    }
+
+    .searchView {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        height: 40px;
+        padding: 0 12px;
+        border: 1px solid var(--primaryMain);
+        border-radius: 8px;
+
+        input {
+            width: 100%;
+            margin-right: 8px;
+        }
+
+        .clearBtn {
+            margin-right: 8px;
+
+            &:hover {
+                color: inherit;
+            }
+        }
+
+        .searchBtn {
+        }
+    }
+
+    .btnView {
+        display: flex;
+        justify-content: flex-end;
+        width: 200px;
+
+        button {
+            margin-left: 12px;
+        }
+    }
+}
+
+.bottomSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    padding-top: 16px;
+
+    .hamburgerBtn {
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .navList {
+        display: flex;
+        align-items: center;
+
+        .navItem {
+            width: 100px;
+            height: 100%;
+        }
+    }
+}
