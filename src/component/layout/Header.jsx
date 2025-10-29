@@ -1,0 +1,90 @@
+'use client';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './Header.module.scss';
+import { IconSearch, IconXboxXFilled, IconHeart, IconShoppingCart, IconMenu2 } from '@tabler/icons-react';
+
+const NAV_ITEMS = [
+    { label: '신상품', url: '/items' },
+    { label: '베스트', url: '/items' },
+    { label: '알뜰쇼핑', url: '/items' },
+    { label: '이벤트', url: '/items' },
+    { label: '브랜드', url: '/items' }
+];
+
+const Header = () => {
+    const [keyword, setKeywrod] = useState('');
+
+    const onClickClearBtn = () => {
+        setKeywrod('');
+    };
+
+    const onClickSearchBtn = () => {};
+
+    const onClickCategoryBtn = () => {};
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+                <div className={styles.topSection}>
+                    <a className={styles.point}>회원가입</a>
+                    <span>{`  |  `}</span>
+                    <a>로그인</a>
+                </div>
+
+                <div className={styles.midSection}>
+                    <div className={styles.leftView}>
+                        <Link href="/">
+                            <Image src="/ablogo.png" width={50} height={50} priority alt="ab logo" />
+                        </Link>
+                    </div>
+
+                    <div className={styles.centerView}>
+                        <input type="text" value={keyword} onChange={(e) => setKeywrod(e.target.value)} />
+                        {keyword.length > 0 && (
+                            <button className={styles.clearBtn} onClick={onClickClearBtn}>
+                                <IconXboxXFilled size={18} />
+                            </button>
+                        )}
+                        <button className={styles.searchBtn} onClick={onClickSearchBtn}>
+                            <IconSearch size={24} />
+                        </button>
+                    </div>
+
+                    <div className={styles.rightView}>
+                        <Link href={'/wish'}>
+                            <IconHeart size={28} />
+                        </Link>
+                        <Link href={'/cart'}>
+                            <IconShoppingCart size={28} />
+                        </Link>
+                    </div>
+                </div>
+
+                <div className={styles.btmSection}>
+                    <div className={styles.leftView}>
+                        <button className={styles.hamburgerBtn} onClick={onClickCategoryBtn}>
+                            <IconMenu2 size={28} style={{ marginRight: '4px' }} />
+                            카테고리
+                        </button>
+                    </div>
+
+                    <div className={styles.centerView}>
+                        <ul className={styles.navList}>
+                            {NAV_ITEMS.map((nav) => (
+                                <li key={nav.label} className={styles.navItem}>
+                                    <Link href={nav.url}>{nav.label}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className={styles.rightView}></div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Header;

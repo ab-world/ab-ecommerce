@@ -1,12 +1,15 @@
-import Image from 'next/image';
+// 샘플 페이지
 import styles from './page.module.scss';
+import Image from 'next/image';
 import { getMetadata } from '@/util/seo';
 
-export default function Home() {
+export default function Sample(props) {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
-                <div>홈</div>
+                <Image src="/ablogo.png" width={50} height={50} priority alt="ab logo" />
+
+                <div className={styles.mainSection}>샘플</div>
             </main>
         </div>
     );

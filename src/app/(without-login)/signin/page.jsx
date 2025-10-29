@@ -1,7 +1,8 @@
-import Image from 'next/image';
+// 회원가입 페이지
 import styles from './page.module.scss';
+import Image from 'next/image';
 
-export default function Login() {
+export default function SignIn(props) {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
