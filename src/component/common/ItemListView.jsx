@@ -8,10 +8,28 @@ const ItemListView = ({ title, subTitle, items }) => {
         <div className={styles.itemListView}>
             {title && (
                 <div className={styles.titleView}>
-                    <a>{title}</a>
+                    {title}
                     {subTitle && <p>{subTitle}</p>}
                 </div>
             )}
+
+            <div className={styles.sortView}>
+                <p>
+                    총 <span>{(40).toLocaleString()}</span>건
+                </p>
+
+                <div className={styles.sortBtnView}>
+                    <a className={styles.active}>추천순</a>
+                    <span>{`  |  `}</span>
+                    <a>신상품순</a>
+                    <span>{`  |  `}</span>
+                    <a>판매량순</a>
+                    <span>{`  |  `}</span>
+                    <a>낮은 가격순</a>
+                    <span>{`  |  `}</span>
+                    <a>높은 가격순</a>
+                </div>
+            </div>
 
             <div className={styles.listView}>
                 {items.map((item) => (

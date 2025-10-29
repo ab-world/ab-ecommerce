@@ -19,6 +19,40 @@
         }
     }
 
+    .sortView {
+        user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+
+        p {
+            font-size: 14px;
+
+            span {
+                color: var(--primaryMain);
+                font-weight: bold;
+            }
+        }
+
+        .sortBtnView {
+            a {
+                color: var(--grey);
+                font-size: 14px;
+
+                &.active {
+                    color: var(--foreground);
+                }
+            }
+
+            span {
+                color: var(--grey);
+                font-size: 14px;
+                white-space: pre;
+            }
+        }
+    }
+
     .listView {
         display: flex;
         gap: 30px;

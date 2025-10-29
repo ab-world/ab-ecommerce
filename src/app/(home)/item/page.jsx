@@ -3,15 +3,11 @@
 import styles from './page.module.scss';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { IconArrowUp, IconHeart } from '@tabler/icons-react';
+import { IconHeart } from '@tabler/icons-react';
 import { STICKY } from '@/const/variable';
 
 export default function ItemDetail(props) {
     const containerRef = useRef(null);
-
-    const onClickUpBtn = () => {
-        window.scrollTo(0, 0);
-    };
 
     const onClickTab = (id) => {
         const target = containerRef.current.querySelector(id).getBoundingClientRect();

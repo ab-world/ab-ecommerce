@@ -28,14 +28,16 @@ const Header = () => {
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <div className={styles.topSection}>
-                    <a className={styles.point}>회원가입</a>
+                    <Link className={styles.point} href={'signup'}>
+                        회원가입
+                    </Link>
                     <span>{`  |  `}</span>
-                    <a>로그인</a>
+                    <Link href={'login'}>로그인</Link>
                 </div>
 
                 <div className={styles.midSection}>
                     <div className={styles.leftView}>
-                        <Link href="/">
+                        <Link href={'/'}>
                             <Image src="/ablogo.png" width={50} height={50} priority alt="ab logo" />
                         </Link>
                     </div>

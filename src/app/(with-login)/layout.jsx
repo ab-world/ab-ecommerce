@@ -1,6 +1,7 @@
 // with-login 레이아웃
 import Header from '@/component/layout/Header';
 import Footer from '@/component/layout/Footer';
+import UpBtn from '@/component/layout/UpBtn';
 import '@/style/globals.scss';
 
 export const metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
                 <Header />
                 {children}
                 <Footer />
+                <UpBtn />
             </body>
         </html>
     );
