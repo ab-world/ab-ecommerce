@@ -8,7 +8,7 @@ const UpBtn = () => {
 
     return (
         <button className={'upBtn'} onClick={onClickUpBtn}>
-            <IconArrowUp size={35} />
+            <IconArrowUp />
         </button>
     );
 };

@@ -2,7 +2,7 @@
     background-color: var(--background2);
     width: 100%;
     padding: 24px 0;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px;
+    box-shadow: rgba(191, 173, 173, 0.07) 0px 3px 4px 0px;
 
     .wrapper {
         width: 100%;
@@ -43,5 +43,11 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        display: none;
     }
 }

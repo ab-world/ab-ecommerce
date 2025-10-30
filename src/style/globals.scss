@@ -1,4 +1,4 @@
-@import './reset.scss';
+@forward 'reset.scss';
 
 @font-face {
     font-family: 'NanumSquareNeo';
@@ -85,6 +85,41 @@ a:hover {
     height: 60px;
     border: 1px solid var(--grey);
     border-radius: 50%;
+
+    svg {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    button:hover {
+        color: inherit;
+    }
+
+    a:hover {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    .upBtn {
+        background-color: var(--background);
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--grey);
+        border-radius: 50%;
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+    }
 }
 
 @media (prefers-color-scheme: dark) {

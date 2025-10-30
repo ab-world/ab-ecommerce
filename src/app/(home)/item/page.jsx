@@ -4,14 +4,18 @@ import styles from './page.module.scss';
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { IconHeart } from '@tabler/icons-react';
-import { STICKY } from '@/const/variable';
+import { STICKY, MOBILE_STICKY } from '@/const/variable';
 
 export default function ItemDetail(props) {
     const containerRef = useRef(null);
 
     const onClickTab = (id) => {
         const target = containerRef.current.querySelector(id).getBoundingClientRect();
-        window.scrollTo({ top: target.top + window.scrollY - STICKY });
+
+        const userAgent = window.navigator.userAgent;
+        const isMobile = /Mobi|Android|iPhone/i.test(userAgent);
+
+        window.scrollTo({ top: target.top + window.scrollY - (isMobile ? MOBILE_STICKY : STICKY) });
     };
 
     return (
