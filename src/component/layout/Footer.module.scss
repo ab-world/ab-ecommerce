@@ -46,6 +46,12 @@
     }
 }
 
+@media (max-width: 1280px) {
+    .container {
+        display: none;
+    }
+}
+
 @media (max-width: 600px) {
     .container {
         display: none;
