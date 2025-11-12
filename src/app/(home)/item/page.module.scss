@@ -45,6 +45,7 @@
 
                     .imgListView {
                         display: flex;
+                        flex-wrap: wrap;
                         gap: 16px;
 
                         .imgWrapper {
@@ -89,7 +90,7 @@
                     .itemDescription {
                         overflow: hidden;
                         margin-top: 4px;
-                        color: var(--grey);
+                        color: var(--darkGrey);
                         font-size: 18px;
                         white-space: nowrap;
                         text-overflow: ellipsis;
@@ -144,7 +145,7 @@
                                 dd {
                                     display: flex;
                                     flex-direction: column;
-                                    color: var(--grey);
+                                    color: var(--darkGrey);
                                     font-size: 13px;
                                 }
                             }
@@ -159,16 +160,113 @@
                         }
 
                         .optionView {
+                            position: relative;
                             margin-top: 16px;
+
+                            select {
+                                -webkit-appearance: none; /* Chrome, Safari 등 */
+                                -moz-appearance: none; /* Firefox */
+                                appearance: none;
+                                background-color: var(--background);
+                                width: 100%;
+                                height: 40px;
+                                padding: 0 10px;
+                                border: 1px solid var(--darkGrey);
+                                outline: none;
+                                color: var(--darkGrey);
+                            }
+
+                            svg {
+                                position: absolute;
+                                top: 50%;
+                                right: 10px;
+                                width: 24px;
+                                height: 24px;
+                                transform: translateY(-50%);
+                            }
                         }
 
                         .selectedOptionView {
                             margin-top: 20px;
+
+                            .selectedOptionItem {
+                                margin-top: -1px;
+                                padding: 16px;
+                                border: 1px solid var(--border);
+
+                                .topView {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+
+                                    p {
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                    }
+
+                                    button {
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        width: 30px;
+                                        height: 30px;
+
+                                        svg {
+                                            width: 24px;
+                                            height: 24px;
+                                        }
+                                    }
+                                }
+
+                                .btmView {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    margin-top: 12px;
+
+                                    .countView {
+                                        display: flex;
+                                        height: 30px;
+                                        align-items: center;
+
+                                        button {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 30px;
+                                            height: 30px;
+                                            border: 1px solid var(--border);
+
+                                            svg {
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+                                        }
+
+                                        div {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 40px;
+                                            height: 30px;
+                                            border: 1px solid var(--border);
+                                            margin-left: -1px;
+                                            margin-right: -1px;
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                        }
+                                    }
+
+                                    .optionPriceView {
+                                        font-size: 16px;
+                                    }
+                                }
+                            }
                         }
 
                         .buttonView {
                             display: flex;
-                            gap: 15px;
+                            gap: 10px;
                             margin-top: 20px;
 
                             .wishBtn {
@@ -177,19 +275,27 @@
                                 align-items: center;
                                 width: 50px;
                                 height: 50px;
-                                border: 1px solid var(--primaryMain);
+                                border: 1px solid var(--darkGrey);
                                 border-radius: 8px;
                                 color: var(--primaryMain);
 
                                 &.active {
-                                    background-color: var(--primaryMain);
+                                    svg {
+                                        color: var(--errorMain);
+                                        fill: var(--errorMain);
+                                    }
+                                }
+
+                                svg {
+                                    width: 28px;
+                                    height: 28px;
                                 }
                             }
 
                             div {
                                 flex: 1;
                                 display: flex;
-                                gap: 15px;
+                                gap: 10px;
                                 height: 50px;
                             }
 
@@ -225,9 +331,16 @@
                 z-index: 1000000;
 
                 button {
+                    background-color: var(--background2);
                     flex: 1;
                     border: 1px solid var(--border);
                     font-size: 15px;
+
+                    &.active {
+                        background-color: var(--background);
+                        border-bottom: none;
+                        color: var(--primaryMain);
+                    }
 
                     &:not(:first-child) {
                         border-left: none;
@@ -236,8 +349,12 @@
             }
 
             .tabTitle {
-                padding: 40px 0;
+                margin-bottom: 20px;
                 font-size: 20px;
+            }
+
+            .tabContent {
+                margin-top: 40px;
             }
 
             .descriptionView {
@@ -251,26 +368,191 @@
                         object-fit: cover;
                     }
                 }
+
+                .longImgWrapper {
+                    margin-top: 40px;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                .gridTitle {
+                    margin: 40px 0 16px;
+                    font-size: 18px;
+                }
+
+                .gridView {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .gridItem {
+                        display: flex;
+                        width: 50%;
+
+                        .gridItemTitle {
+                            background-color: var(--background2);
+                            width: 200px;
+                            padding: 10px;
+                            font-size: 14px;
+                        }
+
+                        .gridItemContent {
+                            flex: 1;
+                            padding: 10px;
+                            font-size: 14px;
+                        }
+                    }
+                }
             }
 
-            .detailView {
-                img {
-                    width: 100%;
-                    height: auto;
+            .noticeView {
+                .boxView {
+                    display: flex;
+                    margin-top: -1px;
+                    padding: 16px;
+                    border: 1px solid var(--border);
+
+                    h2 {
+                        width: 200px;
+                        color: var(--primaryMain);
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+
+                    p {
+                        font-size: 18px;
+                    }
+                }
+
+                .gridItem {
+                    display: flex;
+                    gap: 60px;
+                    padding: 20px 0;
+                    border-bottom: 1px solid var(--border);
+
+                    // &:last-child {
+                    //     border-bottom: none;
+                    // }
+
+                    .gridItemTitle {
+                        flex-shrink: 0;
+                        width: 300px;
+                        padding: 32px;
+                    }
+
+                    .gridItemContent {
+                        flex: 1;
+                        white-space: pre-wrap;
+                        word-break: keep-all;
+                    }
                 }
             }
 
             .reviewView {
+                .imgListView {
+                    display: flex;
+                    gap: 10px;
+
+                    .imgWrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: calc(100% - (70px / 8));
+                        border-radius: 8px;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            padding-bottom: 100%;
+                        }
+
+                        img {
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .tableView {
+                    .titleView {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin: 20px 0 8px;
+
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+
+                    table {
+                        width: 100%;
+                        font-size: 14px;
+
+                        tbody > tr {
+                            &:first-child {
+                                border-top: 1px solid var(--black);
+                            }
+
+                            border-bottom: 1px solid var(--border);
+                        }
+
+                        tr {
+                            td {
+                                padding: 12px;
+
+                                &:first-child {
+                                    width: 200px;
+                                }
+
+                                .reviewOptionName {
+                                    color: var(--darkGrey);
+                                    font-size: 13px;
+                                }
+
+                                .reviewContent {
+                                    margin-top: 8px;
+                                    font-size: 13px;
+                                }
+
+                                .reviewImg {
+                                    position: relative;
+                                    overflow: hidden;
+                                    width: 100px;
+                                    margin-top: 8px;
+                                    border-radius: 8px;
+
+                                    &:after {
+                                        content: '';
+                                        display: block;
+                                        padding-bottom: 100%;
+                                    }
+
+                                    img {
+                                        object-fit: cover;
+                                    }
+                                }
+
+                                .reviewRegDate {
+                                    margin-top: 8px;
+                                    color: var(--darkGrey);
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             .inquiryView {
                 .titleView {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                    position: relative;
 
                     button {
                         background-color: var(--primaryMain);
+                        position: absolute;
+                        top: -4px;
+                        right: 0;
                         padding: 8px 20px;
                         border-radius: 4px;
                         color: var(--white);
@@ -295,6 +577,7 @@
 
                         tr {
                             &.inquiry {
+                                cursor: pointer;
                             }
 
                             &.answer {
@@ -302,7 +585,33 @@
                                 display: none;
 
                                 &.active {
-                                    display: table-cell;
+                                    display: table-row;
+                                }
+
+                                .inquiryContent {
+                                    display: flex;
+                                    align-items: center;
+
+                                    svg {
+                                        width: 20px;
+                                        height: 20px;
+                                        margin-right: 8px;
+                                    }
+                                }
+
+                                .answerContent {
+                                    display: flex;
+                                    margin-top: 40px;
+
+                                    svg {
+                                        width: 20px;
+                                        height: 20px;
+                                        margin-right: 8px;
+                                    }
+
+                                    .answerRegDate {
+                                        margin-top: 12px;
+                                    }
                                 }
                             }
 
@@ -315,14 +624,17 @@
                                 padding: 12px;
 
                                 &:nth-child(2) {
+                                    width: 120px;
                                     text-align: center;
                                 }
 
                                 &:nth-child(3) {
+                                    width: 120px;
                                     text-align: center;
                                 }
 
                                 &:nth-child(4) {
+                                    width: 120px;
                                     text-align: center;
                                 }
                             }
@@ -353,14 +665,15 @@
                 width: 100%;
                 max-width: 1280px;
                 margin: 0 auto 80px;
-                padding: 24px 0;
+                padding: 24px;
 
                 .mainView {
                     display: flex;
+                    gap: 40px;
                     justify-content: space-between;
 
                     .imgView {
-                        width: 560px;
+                        flex: 560;
 
                         .imgWrapper {
                             position: relative;
@@ -382,6 +695,7 @@
 
                         .imgListView {
                             display: flex;
+                            flex-wrap: wrap;
                             gap: 16px;
 
                             .imgWrapper {
@@ -400,7 +714,7 @@
                     }
 
                     .infoView {
-                        width: 650px;
+                        flex: 650;
 
                         .label {
                             background-color: var(--primaryMain);
@@ -426,7 +740,7 @@
                         .itemDescription {
                             overflow: hidden;
                             margin-top: 4px;
-                            color: var(--grey);
+                            color: var(--darkGrey);
                             font-size: 18px;
                             white-space: nowrap;
                             text-overflow: ellipsis;
@@ -481,7 +795,7 @@
                                     dd {
                                         display: flex;
                                         flex-direction: column;
-                                        color: var(--grey);
+                                        color: var(--darkGrey);
                                         font-size: 13px;
                                     }
                                 }
@@ -496,16 +810,113 @@
                             }
 
                             .optionView {
+                                position: relative;
                                 margin-top: 16px;
+
+                                select {
+                                    -webkit-appearance: none; /* Chrome, Safari 등 */
+                                    -moz-appearance: none; /* Firefox */
+                                    appearance: none;
+                                    background-color: var(--background);
+                                    width: 100%;
+                                    height: 40px;
+                                    padding: 0 10px;
+                                    border: 1px solid var(--darkGrey);
+                                    outline: none;
+                                    color: var(--darkGrey);
+                                }
+
+                                svg {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 10px;
+                                    width: 24px;
+                                    height: 24px;
+                                    transform: translateY(-50%);
+                                }
                             }
 
                             .selectedOptionView {
                                 margin-top: 20px;
+
+                                .selectedOptionItem {
+                                    margin-top: -1px;
+                                    padding: 16px;
+                                    border: 1px solid var(--border);
+
+                                    .topView {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        p {
+                                            font-size: 16px;
+                                            font-weight: 500;
+                                        }
+
+                                        button {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 30px;
+                                            height: 30px;
+
+                                            svg {
+                                                width: 24px;
+                                                height: 24px;
+                                            }
+                                        }
+                                    }
+
+                                    .btmView {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        margin-top: 12px;
+
+                                        .countView {
+                                            display: flex;
+                                            height: 30px;
+                                            align-items: center;
+
+                                            button {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                width: 30px;
+                                                height: 30px;
+                                                border: 1px solid var(--border);
+
+                                                svg {
+                                                    width: 20px;
+                                                    height: 20px;
+                                                }
+                                            }
+
+                                            div {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                width: 40px;
+                                                height: 30px;
+                                                border: 1px solid var(--border);
+                                                margin-left: -1px;
+                                                margin-right: -1px;
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                            }
+                                        }
+
+                                        .optionPriceView {
+                                            font-size: 16px;
+                                        }
+                                    }
+                                }
                             }
 
                             .buttonView {
                                 display: flex;
-                                gap: 15px;
+                                gap: 10px;
                                 margin-top: 20px;
 
                                 .wishBtn {
@@ -514,19 +925,31 @@
                                     align-items: center;
                                     width: 50px;
                                     height: 50px;
-                                    border: 1px solid var(--primaryMain);
+                                    border: 1px solid var(--darkGrey);
                                     border-radius: 8px;
                                     color: var(--primaryMain);
 
                                     &.active {
-                                        background-color: var(--primaryMain);
+                                        svg {
+                                            color: var(--errorMain);
+                                            fill: var(--errorMain);
+                                        }
+                                    }
+
+                                    svg {
+                                        width: 28px;
+                                        height: 28px;
+
+                                        &.active {
+                                            background-color: var(--errorMain);
+                                        }
                                     }
                                 }
 
                                 div {
                                     flex: 1;
                                     display: flex;
-                                    gap: 15px;
+                                    gap: 10px;
                                     height: 50px;
                                 }
 
@@ -554,7 +977,7 @@
                 .tabView {
                     background-color: var(--background);
                     position: sticky;
-                    top: 140px;
+                    top: 132px;
                     display: flex;
                     width: 100%;
                     height: 50px;
@@ -562,9 +985,16 @@
                     z-index: 1000000;
 
                     button {
+                        background-color: var(--background2);
                         flex: 1;
                         border: 1px solid var(--border);
                         font-size: 15px;
+
+                        &.active {
+                            background-color: var(--background);
+                            border-bottom: none;
+                            color: var(--primaryMain);
+                        }
 
                         &:not(:first-child) {
                             border-left: none;
@@ -573,8 +1003,12 @@
                 }
 
                 .tabTitle {
-                    padding: 40px 0;
+                    margin-bottom: 20px;
                     font-size: 20px;
+                }
+
+                .tabContent {
+                    margin-top: 40px;
                 }
 
                 .descriptionView {
@@ -588,26 +1022,191 @@
                             object-fit: cover;
                         }
                     }
+
+                    .longImgWrapper {
+                        margin-top: 40px;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .gridTitle {
+                        margin: 40px 0 16px;
+                        font-size: 18px;
+                    }
+
+                    .gridView {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .gridItem {
+                            display: flex;
+                            width: 50%;
+
+                            .gridItemTitle {
+                                background-color: var(--background2);
+                                width: 200px;
+                                padding: 10px;
+                                font-size: 14px;
+                            }
+
+                            .gridItemContent {
+                                flex: 1;
+                                padding: 10px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
                 }
 
-                .detailView {
-                    img {
-                        width: 100%;
-                        height: auto;
+                .noticeView {
+                    .boxView {
+                        display: flex;
+                        margin-top: -1px;
+                        padding: 16px;
+                        border: 1px solid var(--border);
+
+                        h2 {
+                            width: 200px;
+                            color: var(--primaryMain);
+                            font-size: 18px;
+                            font-weight: 500;
+                        }
+
+                        p {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .gridItem {
+                        display: flex;
+                        gap: 60px;
+                        padding: 20px 0;
+                        border-bottom: 1px solid var(--border);
+
+                        // &:last-child {
+                        //     border-bottom: none;
+                        // }
+
+                        .gridItemTitle {
+                            flex-shrink: 0;
+                            width: 300px;
+                            padding: 32px;
+                        }
+
+                        .gridItemContent {
+                            flex: 1;
+                            white-space: pre-wrap;
+                            word-break: keep-all;
+                        }
                     }
                 }
 
                 .reviewView {
+                    .imgListView {
+                        display: flex;
+                        gap: 10px;
+
+                        .imgWrapper {
+                            position: relative;
+                            overflow: hidden;
+                            width: calc(100% - (70px / 8));
+                            border-radius: 8px;
+
+                            &:after {
+                                content: '';
+                                display: block;
+                                padding-bottom: 100%;
+                            }
+
+                            img {
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .tableView {
+                        .titleView {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 20px 0 8px;
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+
+                        table {
+                            width: 100%;
+                            font-size: 14px;
+
+                            tbody > tr {
+                                &:first-child {
+                                    border-top: 1px solid var(--black);
+                                }
+
+                                border-bottom: 1px solid var(--border);
+                            }
+
+                            tr {
+                                td {
+                                    padding: 12px;
+
+                                    &:first-child {
+                                        width: 200px;
+                                    }
+
+                                    .reviewOptionName {
+                                        color: var(--darkGrey);
+                                        font-size: 13px;
+                                    }
+
+                                    .reviewContent {
+                                        margin-top: 8px;
+                                        font-size: 13px;
+                                    }
+
+                                    .reviewImg {
+                                        position: relative;
+                                        overflow: hidden;
+                                        width: 100px;
+                                        margin-top: 8px;
+                                        border-radius: 8px;
+
+                                        &:after {
+                                            content: '';
+                                            display: block;
+                                            padding-bottom: 100%;
+                                        }
+
+                                        img {
+                                            object-fit: cover;
+                                        }
+                                    }
+
+                                    .reviewRegDate {
+                                        margin-top: 8px;
+                                        color: var(--darkGrey);
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .inquiryView {
                     .titleView {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
+                        position: relative;
 
                         button {
                             background-color: var(--primaryMain);
+                            position: absolute;
+                            top: -4px;
+                            right: 0;
                             padding: 8px 20px;
                             border-radius: 4px;
                             color: var(--white);
@@ -632,6 +1231,7 @@
 
                             tr {
                                 &.inquiry {
+                                    cursor: pointer;
                                 }
 
                                 &.answer {
@@ -639,7 +1239,33 @@
                                     display: none;
 
                                     &.active {
-                                        display: table-cell;
+                                        display: table-row;
+                                    }
+
+                                    .inquiryContent {
+                                        display: flex;
+                                        align-items: center;
+
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin-right: 8px;
+                                        }
+                                    }
+
+                                    .answerContent {
+                                        display: flex;
+                                        margin-top: 40px;
+
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin-right: 8px;
+                                        }
+
+                                        .answerRegDate {
+                                            margin-top: 12px;
+                                        }
                                     }
                                 }
 
@@ -652,14 +1278,685 @@
                                     padding: 12px;
 
                                     &:nth-child(2) {
+                                        width: 120px;
                                         text-align: center;
                                     }
 
                                     &:nth-child(3) {
+                                        width: 120px;
                                         text-align: center;
                                     }
 
                                     &:nth-child(4) {
+                                        width: 120px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+
+        .main {
+            background-color: var(--background);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+
+            .mainSection {
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto 80px;
+                padding: 16px;
+
+                .mainView {
+                    display: flex;
+                    gap: 30px;
+                    justify-content: space-between;
+
+                    .imgView {
+                        flex: 560;
+
+                        .imgWrapper {
+                            position: relative;
+                            overflow: hidden;
+                            width: 100%;
+                            margin-bottom: 20px;
+                            border-radius: 8px;
+
+                            &:after {
+                                content: '';
+                                display: block;
+                                padding-bottom: 100%;
+                            }
+
+                            img {
+                                object-fit: cover;
+                            }
+                        }
+
+                        .imgListView {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 12px;
+
+                            .imgWrapper {
+                                position: relative;
+                                overflow: hidden;
+                                width: 70px;
+                                border-radius: 8px;
+
+                                &:after {
+                                    content: '';
+                                    display: block;
+                                    padding-bottom: 100%;
+                                }
+                            }
+                        }
+                    }
+
+                    .infoView {
+                        flex: 650;
+
+                        .label {
+                            background-color: var(--primaryMain);
+                            display: inline-block;
+                            padding: 4px 10px;
+                            border-radius: 4px;
+                            color: var(--white);
+                            font-size: 13px;
+                            font-weight: bold;
+                        }
+
+                        .itemName {
+                            overflow: hidden;
+                            display: -webkit-box;
+                            margin-top: 8px;
+                            font-size: 20px;
+                            word-break: break-word;
+                            text-overflow: ellipsis;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                        }
+
+                        .itemDescription {
+                            overflow: hidden;
+                            margin-top: 4px;
+                            color: var(--darkGrey);
+                            font-size: 16px;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+
+                        .priceView {
+                            display: flex;
+                            gap: 8px;
+                            align-items: flex-end;
+                            margin-top: 12px;
+
+                            .discountRate {
+                                color: var(--errorMain);
+                                font-size: 20px;
+                                font-weight: bold;
+                            }
+
+                            .price {
+                                font-size: 20px;
+                                font-weight: bold;
+
+                                span {
+                                    font-size: 18px;
+                                }
+                            }
+
+                            .originPrice {
+                                color: var(--grey);
+                                font-size: 16px;
+                                text-decoration: line-through;
+                            }
+                        }
+
+                        .infoListView {
+                            margin-top: 16px;
+
+                            ul {
+                                li {
+                                    display: flex;
+                                    padding: 12px 0;
+                                    border-top: 1px solid var(--border);
+
+                                    &:last-child {
+                                        border-bottom: 1px solid var(--border);
+                                    }
+
+                                    dt {
+                                        width: 140px;
+                                        font-size: 11px;
+                                    }
+
+                                    dd {
+                                        display: flex;
+                                        flex-direction: column;
+                                        color: var(--darkGrey);
+                                        font-size: 11px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .selectView {
+                            margin-top: 30px;
+
+                            .title {
+                                font-size: 14px;
+                                font-weight: bold;
+                            }
+
+                            .optionView {
+                                position: relative;
+                                margin-top: 16px;
+
+                                select {
+                                    -webkit-appearance: none; /* Chrome, Safari 등 */
+                                    -moz-appearance: none; /* Firefox */
+                                    appearance: none;
+                                    background-color: var(--background);
+                                    width: 100%;
+                                    height: 32px;
+                                    padding: 0 6px;
+                                    border: 1px solid var(--darkGrey);
+                                    outline: none;
+                                    color: var(--darkGrey);
+                                    font-size: 14px;
+                                }
+
+                                svg {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 10px;
+                                    width: 24px;
+                                    height: 24px;
+                                    transform: translateY(-50%);
+                                }
+                            }
+
+                            .selectedOptionView {
+                                margin-top: 16px;
+
+                                .selectedOptionItem {
+                                    margin-top: -1px;
+                                    padding: 12px;
+                                    border: 1px solid var(--border);
+
+                                    .topView {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        p {
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                        }
+
+                                        button {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 24px;
+                                            height: 24px;
+
+                                            svg {
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+                                        }
+                                    }
+
+                                    .btmView {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        margin-top: 8px;
+
+                                        .countView {
+                                            display: flex;
+                                            height: 24px;
+                                            align-items: center;
+
+                                            button {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                width: 24px;
+                                                height: 24px;
+                                                border: 1px solid var(--border);
+
+                                                svg {
+                                                    width: 20px;
+                                                    height: 20px;
+                                                }
+                                            }
+
+                                            div {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                width: 32px;
+                                                height: 24px;
+                                                border: 1px solid var(--border);
+                                                margin-left: -1px;
+                                                margin-right: -1px;
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                            }
+                                        }
+
+                                        .optionPriceView {
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .buttonView {
+                                display: flex;
+                                gap: 10px;
+                                margin-top: 20px;
+
+                                .wishBtn {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    width: 40px;
+                                    height: 40px;
+                                    border: 1px solid var(--darkGrey);
+                                    border-radius: 8px;
+                                    color: var(--primaryMain);
+
+                                    &.active {
+                                        svg {
+                                            color: var(--errorMain);
+                                            fill: var(--errorMain);
+                                        }
+                                    }
+
+                                    svg {
+                                        width: 24px;
+                                        height: 24px;
+
+                                        &.active {
+                                            background-color: var(--errorMain);
+                                        }
+                                    }
+                                }
+
+                                div {
+                                    flex: 1;
+                                    display: flex;
+                                    gap: 10px;
+                                    height: 40px;
+                                }
+
+                                .cartBtn {
+                                    flex: 1;
+                                    border: 1px solid var(--primaryMain);
+                                    border-radius: 8px;
+                                    color: var(--primaryMain);
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                }
+
+                                .orderBtn {
+                                    background-color: var(--primaryMain);
+                                    flex: 1;
+                                    border: 1px solid var(--primaryMain);
+                                    border-radius: 8px;
+                                    color: var(--white);
+                                    font-size: 14px;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .tabView {
+                    background-color: var(--background);
+                    position: sticky;
+                    top: 132px;
+                    display: flex;
+                    width: 100%;
+                    height: 50px;
+                    margin-top: 30px;
+                    z-index: 1000000;
+
+                    button {
+                        background-color: var(--background2);
+                        flex: 1;
+                        border: 1px solid var(--border);
+                        font-size: 14px;
+
+                        &.active {
+                            background-color: var(--background);
+                            border-bottom: none;
+                            color: var(--primaryMain);
+                        }
+
+                        &:not(:first-child) {
+                            border-left: none;
+                        }
+                    }
+                }
+
+                .tabTitle {
+                    margin-bottom: 20px;
+                    font-size: 18px;
+                }
+
+                .tabContent {
+                    margin-top: 40px;
+                }
+
+                .descriptionView {
+                    .imgWrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: 100%;
+                        height: 400px;
+
+                        img {
+                            object-fit: cover;
+                        }
+                    }
+
+                    .longImgWrapper {
+                        margin-top: 40px;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .gridTitle {
+                        margin: 40px 0 16px;
+                        font-size: 16px;
+                    }
+
+                    .gridView {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .gridItem {
+                            display: flex;
+                            width: 50%;
+
+                            .gridItemTitle {
+                                background-color: var(--background2);
+                                flex-shrink: 0;
+                                width: 140px;
+                                padding: 8px;
+                                font-size: 13px;
+                            }
+
+                            .gridItemContent {
+                                flex: 1;
+                                padding: 8px;
+                                font-size: 13px;
+                                word-break: break-all;
+                            }
+                        }
+                    }
+                }
+
+                .noticeView {
+                    .boxView {
+                        display: flex;
+                        margin-top: -1px;
+                        padding: 12px;
+                        border: 1px solid var(--border);
+
+                        h2 {
+                            flex-shrink: 0;
+                            width: 140px;
+                            color: var(--primaryMain);
+                            font-size: 16px;
+                            font-weight: 500;
+                        }
+
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .gridItem {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0;
+                        padding: 16px 0;
+                        border-bottom: 1px solid var(--border);
+
+                        // &:last-child {
+                        //     border-bottom: none;
+                        // }
+
+                        .gridItemTitle {
+                            flex-shrink: 0;
+                            width: 100%;
+                            padding: 12px;
+                            font-size: 15px;
+                            font-weight: 500;
+                        }
+
+                        .gridItemContent {
+                            flex: 1;
+                            padding: 12px;
+                            white-space: pre-wrap;
+                            word-break: keep-all;
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .reviewView {
+                    .imgListView {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 6px;
+
+                        .imgWrapper {
+                            position: relative;
+                            overflow: hidden;
+                            width: calc(20% - (24px / 5));
+                            border-radius: 8px;
+
+                            &:after {
+                                content: '';
+                                display: block;
+                                padding-bottom: 100%;
+                            }
+
+                            img {
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .tableView {
+                        .titleView {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 20px 0 8px;
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+
+                        table {
+                            width: 100%;
+                            font-size: 14px;
+
+                            tbody > tr {
+                                &:first-child {
+                                    border-top: 1px solid var(--black);
+                                }
+
+                                border-bottom: 1px solid var(--border);
+                            }
+
+                            tr {
+                                td {
+                                    padding: 12px;
+
+                                    &:first-child {
+                                        width: 200px;
+                                    }
+
+                                    .reviewOptionName {
+                                        color: var(--darkGrey);
+                                        font-size: 13px;
+                                    }
+
+                                    .reviewContent {
+                                        margin-top: 8px;
+                                        font-size: 13px;
+                                    }
+
+                                    .reviewImg {
+                                        position: relative;
+                                        overflow: hidden;
+                                        width: 100px;
+                                        margin-top: 8px;
+                                        border-radius: 8px;
+
+                                        &:after {
+                                            content: '';
+                                            display: block;
+                                            padding-bottom: 100%;
+                                        }
+
+                                        img {
+                                            object-fit: cover;
+                                        }
+                                    }
+
+                                    .reviewRegDate {
+                                        margin-top: 8px;
+                                        color: var(--darkGrey);
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .inquiryView {
+                    .titleView {
+                        position: relative;
+
+                        button {
+                            background-color: var(--primaryMain);
+                            position: absolute;
+                            top: -5px;
+                            right: 0;
+                            padding: 8px 20px;
+                            border-radius: 4px;
+                            color: var(--white);
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .tableView {
+                        table {
+                            width: 100%;
+                            font-size: 14px;
+
+                            thead > tr {
+                                border-top: 1px solid var(--black);
+                                border-bottom: 1px solid var(--border);
+                            }
+
+                            tbody > tr {
+                                border-bottom: 1px solid var(--border);
+                            }
+
+                            tr {
+                                &.inquiry {
+                                    cursor: pointer;
+                                }
+
+                                &.answer {
+                                    background-color: var(--background2);
+                                    display: none;
+
+                                    &.active {
+                                        display: table-row;
+                                    }
+
+                                    .inquiryContent {
+                                        display: flex;
+                                        align-items: center;
+
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin-right: 8px;
+                                        }
+                                    }
+
+                                    .answerContent {
+                                        display: flex;
+                                        margin-top: 40px;
+
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin-right: 8px;
+                                        }
+
+                                        .answerRegDate {
+                                            margin-top: 12px;
+                                        }
+                                    }
+                                }
+
+                                th {
+                                    padding: 12px 0;
+                                    font-weight: bold;
+                                }
+
+                                td {
+                                    padding: 12px;
+
+                                    &:nth-child(2) {
+                                        width: 120px;
+                                        text-align: center;
+                                    }
+
+                                    &:nth-child(3) {
+                                        width: 120px;
+                                        text-align: center;
+                                    }
+
+                                    &:nth-child(4) {
+                                        width: 120px;
                                         text-align: center;
                                     }
                                 }
@@ -690,12 +1987,13 @@
             .mainSection {
                 width: 100%;
                 max-width: 1280px;
-                margin: 0 auto 40px;
+                margin: 0 auto 80px;
                 padding: 12px;
 
                 .mainView {
                     display: flex;
                     flex-direction: column;
+                    gap: 10px;
                     justify-content: space-between;
 
                     .imgView {
@@ -705,7 +2003,7 @@
                             position: relative;
                             overflow: hidden;
                             width: 100%;
-                            margin-bottom: 20px;
+                            margin-bottom: 12px;
                             border-radius: 8px;
 
                             &:after {
@@ -721,12 +2019,13 @@
 
                         .imgListView {
                             display: flex;
-                            gap: 16px;
+                            flex-wrap: wrap;
+                            gap: 8px;
 
                             .imgWrapper {
                                 position: relative;
                                 overflow: hidden;
-                                width: 80px;
+                                width: 60px;
                                 border-radius: 8px;
 
                                 &:after {
@@ -747,7 +2046,7 @@
                             padding: 4px 10px;
                             border-radius: 4px;
                             color: var(--white);
-                            font-size: 14px;
+                            font-size: 13px;
                             font-weight: bold;
                         }
 
@@ -755,7 +2054,7 @@
                             overflow: hidden;
                             display: -webkit-box;
                             margin-top: 8px;
-                            font-size: 24px;
+                            font-size: 20px;
                             word-break: break-word;
                             text-overflow: ellipsis;
                             -webkit-line-clamp: 2;
@@ -765,8 +2064,8 @@
                         .itemDescription {
                             overflow: hidden;
                             margin-top: 4px;
-                            color: var(--grey);
-                            font-size: 18px;
+                            color: var(--darkGrey);
+                            font-size: 16px;
                             white-space: nowrap;
                             text-overflow: ellipsis;
                         }
@@ -779,22 +2078,22 @@
 
                             .discountRate {
                                 color: var(--errorMain);
-                                font-size: 24px;
+                                font-size: 20px;
                                 font-weight: bold;
                             }
 
                             .price {
-                                font-size: 24px;
+                                font-size: 20px;
                                 font-weight: bold;
 
                                 span {
-                                    font-size: 20px;
+                                    font-size: 18px;
                                 }
                             }
 
                             .originPrice {
                                 color: var(--grey);
-                                font-size: 18px;
+                                font-size: 16px;
                                 text-decoration: line-through;
                             }
                         }
@@ -805,7 +2104,7 @@
                             ul {
                                 li {
                                     display: flex;
-                                    padding: 16px 0;
+                                    padding: 12px 0;
                                     border-top: 1px solid var(--border);
 
                                     &:last-child {
@@ -814,14 +2113,14 @@
 
                                     dt {
                                         width: 140px;
-                                        font-size: 13px;
+                                        font-size: 11px;
                                     }
 
                                     dd {
                                         display: flex;
                                         flex-direction: column;
-                                        color: var(--grey);
-                                        font-size: 13px;
+                                        color: var(--darkGrey);
+                                        font-size: 11px;
                                     }
                                 }
                             }
@@ -831,42 +2130,153 @@
                             margin-top: 30px;
 
                             .title {
+                                font-size: 14px;
                                 font-weight: bold;
                             }
 
                             .optionView {
+                                position: relative;
                                 margin-top: 16px;
+
+                                select {
+                                    -webkit-appearance: none; /* Chrome, Safari 등 */
+                                    -moz-appearance: none; /* Firefox */
+                                    appearance: none;
+                                    background-color: var(--background);
+                                    width: 100%;
+                                    height: 32px;
+                                    padding: 0 6px;
+                                    border: 1px solid var(--darkGrey);
+                                    outline: none;
+                                    color: var(--darkGrey);
+                                    font-size: 14px;
+                                }
+
+                                svg {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 10px;
+                                    width: 24px;
+                                    height: 24px;
+                                    transform: translateY(-50%);
+                                }
                             }
 
                             .selectedOptionView {
-                                margin-top: 20px;
+                                margin-top: 16px;
+
+                                .selectedOptionItem {
+                                    margin-top: -1px;
+                                    padding: 12px;
+                                    border: 1px solid var(--border);
+
+                                    .topView {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        p {
+                                            font-size: 14px;
+                                            font-weight: 500;
+                                        }
+
+                                        button {
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                            width: 24px;
+                                            height: 24px;
+
+                                            svg {
+                                                width: 20px;
+                                                height: 20px;
+                                            }
+                                        }
+                                    }
+
+                                    .btmView {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        margin-top: 8px;
+
+                                        .countView {
+                                            display: flex;
+                                            height: 24px;
+                                            align-items: center;
+
+                                            button {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                width: 24px;
+                                                height: 24px;
+                                                border: 1px solid var(--border);
+
+                                                svg {
+                                                    width: 20px;
+                                                    height: 20px;
+                                                }
+                                            }
+
+                                            div {
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                width: 32px;
+                                                height: 24px;
+                                                border: 1px solid var(--border);
+                                                margin-left: -1px;
+                                                margin-right: -1px;
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                            }
+                                        }
+
+                                        .optionPriceView {
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
                             }
 
                             .buttonView {
                                 display: flex;
-                                gap: 15px;
+                                gap: 6px;
                                 margin-top: 20px;
 
                                 .wishBtn {
                                     display: flex;
                                     justify-content: center;
                                     align-items: center;
-                                    width: 50px;
-                                    height: 50px;
-                                    border: 1px solid var(--primaryMain);
+                                    width: 40px;
+                                    height: 40px;
+                                    border: 1px solid var(--darkGrey);
                                     border-radius: 8px;
                                     color: var(--primaryMain);
 
                                     &.active {
-                                        background-color: var(--primaryMain);
+                                        svg {
+                                            color: var(--errorMain);
+                                            fill: var(--errorMain);
+                                        }
+                                    }
+
+                                    svg {
+                                        width: 24px;
+                                        height: 24px;
+
+                                        &.active {
+                                            background-color: var(--errorMain);
+                                        }
                                     }
                                 }
 
                                 div {
                                     flex: 1;
                                     display: flex;
-                                    gap: 15px;
-                                    height: 50px;
+                                    gap: 6px;
+                                    height: 40px;
                                 }
 
                                 .cartBtn {
@@ -874,6 +2284,7 @@
                                     border: 1px solid var(--primaryMain);
                                     border-radius: 8px;
                                     color: var(--primaryMain);
+                                    font-size: 14px;
                                     font-weight: bold;
                                 }
 
@@ -883,6 +2294,7 @@
                                     border: 1px solid var(--primaryMain);
                                     border-radius: 8px;
                                     color: var(--white);
+                                    font-size: 14px;
                                     font-weight: bold;
                                 }
                             }
@@ -893,18 +2305,25 @@
                 .tabView {
                     background-color: var(--background);
                     position: sticky;
-                    top: 0px;
+                    top: 122px;
                     display: flex;
                     width: calc(100% + 24px);
                     height: 50px;
-                    margin-top: 40px;
+                    margin-top: 20px;
                     z-index: 1000000;
                     transform: translateX(-12px);
 
                     button {
+                        background-color: var(--background2);
                         flex: 1;
                         border: 1px solid var(--border);
-                        font-size: 15px;
+                        font-size: 12px;
+
+                        &.active {
+                            background-color: var(--background);
+                            border-bottom: none;
+                            color: var(--primaryMain);
+                        }
 
                         &:not(:first-child) {
                             border-left: none;
@@ -913,8 +2332,12 @@
                 }
 
                 .tabTitle {
-                    padding: 40px 0;
-                    font-size: 20px;
+                    margin-bottom: 16px;
+                    font-size: 18px;
+                }
+
+                .tabContent {
+                    margin-top: 30px;
                 }
 
                 .descriptionView {
@@ -928,30 +2351,204 @@
                             object-fit: cover;
                         }
                     }
+
+                    .longImgWrapper {
+                        margin-top: 40px;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    .gridTitle {
+                        margin: 40px 0 16px;
+                        font-size: 16px;
+                    }
+
+                    .gridView {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .gridItem {
+                            display: flex;
+                            width: 100%;
+
+                            .gridItemTitle {
+                                background-color: var(--background2);
+                                flex-shrink: 0;
+                                width: 140px;
+                                padding: 8px;
+                                font-size: 13px;
+                            }
+
+                            .gridItemContent {
+                                flex: 1;
+                                padding: 8px;
+                                font-size: 13px;
+                                word-break: break-all;
+                            }
+                        }
+                    }
                 }
 
-                .detailView {
-                    img {
-                        width: 100%;
-                        height: auto;
+                .noticeView {
+                    .boxView {
+                        display: flex;
+                        margin-top: -1px;
+                        padding: 8px;
+                        border: 1px solid var(--border);
+
+                        h2 {
+                            flex-shrink: 0;
+                            width: 140px;
+                            color: var(--primaryMain);
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .gridItem {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0;
+                        padding: 12px 0;
+                        border-bottom: 1px solid var(--border);
+
+                        // &:last-child {
+                        //     border-bottom: none;
+                        // }
+
+                        .gridItemTitle {
+                            flex-shrink: 0;
+                            width: 100%;
+                            padding: 12px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        .gridItemContent {
+                            flex: 1;
+                            padding: 12px;
+                            white-space: pre-wrap;
+                            word-break: keep-all;
+                            font-size: 13px;
+                        }
                     }
                 }
 
                 .reviewView {
+                    .imgListView {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 6px;
+
+                        .imgWrapper {
+                            position: relative;
+                            overflow: hidden;
+                            width: calc(20% - (24px / 5));
+                            border-radius: 8px;
+
+                            &:after {
+                                content: '';
+                                display: block;
+                                padding-bottom: 100%;
+                            }
+
+                            img {
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .tableView {
+                        .titleView {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin: 20px 0 8px;
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+
+                        table {
+                            width: 100%;
+                            font-size: 14px;
+
+                            tbody > tr {
+                                &:first-child {
+                                    border-top: 1px solid var(--black);
+                                }
+
+                                border-bottom: 1px solid var(--border);
+                            }
+
+                            tr {
+                                td {
+                                    padding: 12px;
+
+                                    &:first-child {
+                                        width: 20%;
+                                    }
+
+                                    .reviewOptionName {
+                                        color: var(--darkGrey);
+                                        font-size: 13px;
+                                    }
+
+                                    .reviewContent {
+                                        margin-top: 8px;
+                                        font-size: 13px;
+                                    }
+
+                                    .reviewImg {
+                                        position: relative;
+                                        overflow: hidden;
+                                        width: 100px;
+                                        margin-top: 8px;
+                                        border-radius: 8px;
+
+                                        &:after {
+                                            content: '';
+                                            display: block;
+                                            padding-bottom: 100%;
+                                        }
+
+                                        img {
+                                            object-fit: cover;
+                                        }
+                                    }
+
+                                    .reviewRegDate {
+                                        margin-top: 8px;
+                                        color: var(--darkGrey);
+                                        font-size: 13px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .inquiryView {
                     .titleView {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
+                        position: relative;
 
                         button {
                             background-color: var(--primaryMain);
-                            padding: 8px 20px;
+                            position: absolute;
+                            top: -2px;
+                            right: 0;
+                            padding: 6px 16px;
                             border-radius: 4px;
                             color: var(--white);
-                            font-size: 14px;
+                            font-size: 13px;
                             font-weight: bold;
                         }
                     }
@@ -971,7 +2568,10 @@
                             }
 
                             tr {
+                                font-size: 12px;
+
                                 &.inquiry {
+                                    cursor: pointer;
                                 }
 
                                 &.answer {
@@ -979,27 +2579,56 @@
                                     display: none;
 
                                     &.active {
-                                        display: table-cell;
+                                        display: table-row;
+                                    }
+
+                                    .inquiryContent {
+                                        display: flex;
+                                        align-items: center;
+
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin-right: 8px;
+                                        }
+                                    }
+
+                                    .answerContent {
+                                        display: flex;
+                                        margin-top: 40px;
+
+                                        svg {
+                                            width: 20px;
+                                            height: 20px;
+                                            margin-right: 8px;
+                                        }
+
+                                        .answerRegDate {
+                                            margin-top: 12px;
+                                        }
                                     }
                                 }
 
                                 th {
-                                    padding: 12px 0;
+                                    padding: 8px 0;
                                     font-weight: bold;
                                 }
 
                                 td {
-                                    padding: 12px;
+                                    padding: 8px;
 
                                     &:nth-child(2) {
+                                        width: 60px;
                                         text-align: center;
                                     }
 
                                     &:nth-child(3) {
+                                        width: 100px;
                                         text-align: center;
                                     }
 
                                     &:nth-child(4) {
+                                        width: 70px;
                                         text-align: center;
                                     }
                                 }

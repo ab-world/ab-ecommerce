@@ -1,8 +1,8 @@
 // home 레이아웃
+import '@/style/globals.scss';
 import Header from '@/component/layout/Header';
 import Footer from '@/component/layout/Footer';
-import UpBtn from '@/component/layout/UpBtn';
-import '@/style/globals.scss';
+import UpBtn from '@/component/common/UpBtn';
 
 export const metadata = {
     title: 'AB마켓',

@@ -1,0 +1,259 @@
+.itemListView {
+    width: 100%;
+    margin-top: 40px;
+
+    .titleView {
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+
+        a {
+            font-size: 20px;
+        }
+
+        p {
+            color: var(--darkGrey);
+            font-size: 16px;
+        }
+    }
+
+    .sortView {
+        user-select: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+
+        p {
+            font-size: 14px;
+
+            span {
+                color: var(--primaryMain);
+                font-weight: bold;
+            }
+        }
+
+        .sortBtnView {
+            a {
+                color: var(--grey);
+                font-size: 14px;
+
+                &.active {
+                    color: var(--foreground);
+                }
+            }
+
+            span {
+                color: var(--grey);
+                font-size: 14px;
+                white-space: pre;
+            }
+        }
+    }
+
+    .listView {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .itemListView {
+        width: 100%;
+        margin-top: 40px;
+
+        .titleView {
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+
+            a {
+                font-size: 20px;
+            }
+
+            p {
+                color: var(--darkGrey);
+                font-size: 16px;
+            }
+        }
+
+        .sortView {
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+
+            p {
+                font-size: 14px;
+
+                span {
+                    color: var(--primaryMain);
+                    font-weight: bold;
+                }
+            }
+
+            .sortBtnView {
+                a {
+                    color: var(--grey);
+                    font-size: 14px;
+
+                    &.active {
+                        color: var(--foreground);
+                    }
+                }
+
+                span {
+                    color: var(--grey);
+                    font-size: 14px;
+                    white-space: pre;
+                }
+            }
+        }
+
+        .listView {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .itemListView {
+        width: 100%;
+        margin-top: 30px;
+
+        .titleView {
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+
+            a {
+                font-size: 18px;
+            }
+
+            p {
+                color: var(--darkGrey);
+                font-size: 14px;
+            }
+        }
+
+        .sortView {
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+
+            p {
+                font-size: 14px;
+
+                span {
+                    color: var(--primaryMain);
+                    font-weight: bold;
+                }
+            }
+
+            .sortBtnView {
+                a {
+                    color: var(--grey);
+                    font-size: 14px;
+
+                    &.active {
+                        color: var(--foreground);
+                    }
+                }
+
+                span {
+                    color: var(--grey);
+                    font-size: 14px;
+                    white-space: pre;
+                }
+            }
+        }
+
+        .listView {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .itemListView {
+        width: 100%;
+        margin-top: 20px;
+
+        .titleView {
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+
+            a {
+                font-size: 16px;
+            }
+
+            p {
+                color: var(--darkGrey);
+                font-size: 12px;
+            }
+        }
+
+        .sortView {
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+
+            p {
+                font-size: 14px;
+
+                span {
+                    color: var(--primaryMain);
+                    font-weight: bold;
+                }
+            }
+
+            .sortBtnView {
+                display: none;
+
+                a {
+                    color: var(--grey);
+                    font-size: 14px;
+
+                    &.active {
+                        color: var(--foreground);
+                    }
+                }
+
+                span {
+                    color: var(--grey);
+                    font-size: 14px;
+                    white-space: pre;
+                }
+            }
+        }
+
+        .listView {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
+}

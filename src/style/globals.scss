@@ -17,13 +17,24 @@
     --white: #ffffff;
     --black: #000000;
     --grey: #ababab;
+    --darkGrey: #999999;
 
     --primaryLight: #e3f2fd;
     --primaryMain: #3c91ff;
     --primaryDark: #1e88e5;
-    --errorLight: #ef9a9a;
-    --errorMain: #f44336;
-    --errorDark: #c62828;
+
+    --successLight: #edf7ed;
+    --success200: #b6e0b3;
+    --successMain: #6cc067;
+    --successDark: #64ba5f;
+
+    --warningLight: #fdf5ea;
+    --warningMain: #f0ad4e;
+    --warningDark: #ec9c3d;
+
+    --errorLight: #e48784;
+    --errorMain: #d9534f;
+    --errorDark: #d54c48;
 
     // dark
     --darkWhite: #ffffff;
@@ -73,6 +84,52 @@ a:hover {
     text-decoration: underline;
 }
 
+.notistack-MuiContent-success {
+    background-color: var(--successMain) !important;
+    font-weight: bold;
+
+    button:hover {
+        color: var(--successLight);
+    }
+}
+
+.notistack-MuiContent-info {
+    background-color: var(--errorMain) !important;
+    font-weight: bold;
+
+    button:hover {
+        color: var(--errorLight);
+    }
+}
+
+.notistack-MuiContent-warning {
+    background-color: var(--warningMain) !important;
+    color: var(--black);
+    font-weight: bold;
+
+    & .MuiButtonBase-root > svg {
+        color: var(--black);
+    }
+
+    button:hover {
+        color: var(--warningLight);
+    }
+}
+
+.notistack-MuiContent-fcm {
+    background-color: var(--primaryMain) !important;
+    font-weight: bold;
+
+    button:hover {
+        color: var(--primaryLight);
+    }
+}
+
+#notistack-snackbar {
+    align-items: flex-start;
+    white-space: pre-wrap;
+}
+
 .upBtn {
     background-color: var(--background);
     position: fixed;
@@ -93,11 +150,7 @@ a:hover {
 }
 
 @media (max-width: 1280px) {
-    button:hover {
-        color: inherit;
-    }
-
-    a:hover {
+    *:hover {
         color: inherit;
         text-decoration: none;
     }
@@ -123,11 +176,7 @@ a:hover {
 }
 
 @media (max-width: 600px) {
-    button:hover {
-        color: inherit;
-    }
-
-    a:hover {
+    *:hover {
         color: inherit;
         text-decoration: none;
     }

@@ -40,7 +40,24 @@
             align-items: center;
 
             .leftView {
-                width: 200px;
+                flex: 1;
+
+                .imgWrapper {
+                    position: relative;
+                    overflow: hidden;
+                    width: 50px;
+                    border-radius: 8px;
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        padding-bottom: 100%;
+                    }
+
+                    img {
+                        object-fit: cover;
+                    }
+                }
             }
 
             .centerView {
@@ -55,7 +72,7 @@
                 border-radius: 8px;
 
                 input {
-                    flex: 1;
+                    width: 100%;
                 }
 
                 .clearBtn {
@@ -64,17 +81,31 @@
                     &:hover {
                         color: inherit;
                     }
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                    }
                 }
 
                 .searchBtn {
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
                 }
             }
 
             .rightView {
+                flex: 1;
                 display: flex;
                 gap: 12px;
                 justify-content: flex-end;
-                width: 200px;
+
+                svg {
+                    width: 28px;
+                    height: 28px;
+                }
             }
         }
 
@@ -87,12 +118,21 @@
             padding-top: 16px;
 
             .leftView {
-                width: 200px;
+                flex: 1;
 
                 .hamburgerBtn {
                     display: flex;
                     align-items: center;
                     font-size: 16px;
+
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                        margin-right: 4px;
+                    }
+                }
+
+                span {
                 }
             }
 
@@ -115,7 +155,7 @@
             }
 
             .rightView {
-                width: 200px;
+                flex: 1;
             }
         }
     }
@@ -164,7 +204,24 @@
                 align-items: center;
 
                 .leftView {
-                    width: 100px;
+                    flex: 1;
+
+                    .imgWrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: 50px;
+                        border-radius: 8px;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            padding-bottom: 100%;
+                        }
+
+                        img {
+                            object-fit: cover;
+                        }
+                    }
                 }
 
                 .centerView {
@@ -179,7 +236,7 @@
                     border-radius: 8px;
 
                     input {
-                        flex: 1;
+                        width: 100%;
                     }
 
                     .clearBtn {
@@ -188,17 +245,31 @@
                         &:hover {
                             color: inherit;
                         }
+
+                        svg {
+                            width: 18px;
+                            height: 18px;
+                        }
                     }
 
                     .searchBtn {
+                        svg {
+                            width: 24px;
+                            height: 24px;
+                        }
                     }
                 }
 
                 .rightView {
+                    flex: 1;
                     display: flex;
                     gap: 12px;
                     justify-content: flex-end;
-                    width: 100px;
+
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                    }
                 }
             }
 
@@ -211,12 +282,187 @@
                 padding-top: 16px;
 
                 .leftView {
-                    width: 100px;
+                    flex: 1;
 
                     .hamburgerBtn {
                         display: flex;
                         align-items: center;
                         font-size: 16px;
+
+                        svg {
+                            width: 28px;
+                            height: 28px;
+                            margin-right: 4px;
+                        }
+                    }
+
+                    span {
+                    }
+                }
+
+                .centerView {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .navList {
+                        display: flex;
+                        justify-content: center;
+
+                        .navItem {
+                            width: 100px;
+                            height: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .rightView {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        user-select: none;
+        background-color: var(--background);
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 12px;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px;
+        z-index: 1000000;
+
+        .wrapper {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+
+            .topSection {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                a {
+                    font-size: 12px;
+
+                    &.point {
+                        color: var(--primaryMain);
+                    }
+                }
+
+                span {
+                    display: inline-block;
+                    color: var(--grey);
+                    font-size: 12px;
+                    white-space: pre;
+                }
+            }
+
+            .midSection {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .leftView {
+                    flex: 1;
+
+                    .imgWrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: 50px;
+                        border-radius: 8px;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            padding-bottom: 100%;
+                        }
+
+                        img {
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .centerView {
+                    display: flex;
+                    gap: 8px;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 300px;
+                    height: 40px;
+                    padding: 0 12px;
+                    border: 1px solid var(--primaryMain);
+                    border-radius: 8px;
+
+                    input {
+                        width: 100%;
+                    }
+
+                    .clearBtn {
+                        color: var(--grey);
+
+                        &:hover {
+                            color: inherit;
+                        }
+
+                        svg {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+
+                    .searchBtn {
+                        svg {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+
+                .rightView {
+                    flex: 1;
+                    display: flex;
+                    gap: 12px;
+                    justify-content: flex-end;
+
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                    }
+                }
+            }
+
+            .btmSection {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                padding-top: 16px;
+
+                .leftView {
+                    flex: none;
+                    flex-shrink: 0;
+
+                    .hamburgerBtn {
+                        display: flex;
+                        align-items: center;
+                        font-size: 16px;
+
+                        svg {
+                            width: 28px;
+                            height: 28px;
+                            margin-right: 4px;
+                        }
+                    }
+
+                    span {
                     }
                 }
 
@@ -248,6 +494,167 @@
 
 @media (max-width: 600px) {
     .container {
-        display: none;
+        user-select: none;
+        background-color: var(--background);
+        position: sticky;
+        top: 0;
+        width: 100%;
+        padding: 12px;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px;
+        z-index: 1000000;
+
+        .wrapper {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+
+            .topSection {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                a {
+                    font-size: 12px;
+
+                    &.point {
+                        color: var(--primaryMain);
+                    }
+                }
+
+                span {
+                    display: inline-block;
+                    color: var(--grey);
+                    font-size: 12px;
+                    white-space: pre;
+                }
+            }
+
+            .midSection {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .leftView {
+                    flex: 1;
+
+                    .imgWrapper {
+                        position: relative;
+                        overflow: hidden;
+                        width: 40px;
+                        border-radius: 8px;
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            padding-bottom: 100%;
+                        }
+
+                        img {
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .centerView {
+                    display: flex;
+                    gap: 4px;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 200px;
+                    height: 35px;
+                    padding: 0 12px;
+                    border: 1px solid var(--primaryMain);
+                    border-radius: 8px;
+
+                    input {
+                        width: 100%;
+                        font-size: 14px;
+                    }
+
+                    .clearBtn {
+                        color: var(--grey);
+
+                        &:hover {
+                            color: inherit;
+                        }
+
+                        svg {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+
+                    .searchBtn {
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                .rightView {
+                    flex: 1;
+                    display: flex;
+                    gap: 12px;
+                    justify-content: flex-end;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+
+            .btmSection {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                padding-top: 16px;
+
+                .leftView {
+                    width: 100px;
+
+                    .hamburgerBtn {
+                        display: flex;
+                        align-items: center;
+                        font-size: 16px;
+
+                        svg {
+                            width: 24px;
+                            height: 24px;
+                            margin-right: 4px;
+                        }
+                    }
+
+                    span {
+                        display: none;
+                    }
+                }
+
+                .centerView {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .navList {
+                        display: none;
+                        justify-content: center;
+
+                        .navItem {
+                            width: 100px;
+                            height: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .rightView {
+                    display: none;
+                }
+            }
+        }
     }
 }

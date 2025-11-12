@@ -10,7 +10,13 @@ export default function Home(props) {
         <div className={styles.page}>
             <main className={styles.main}>
                 <div className={styles.bannerSection}>
-                    <Image src="/bannerSample.jpg" fill priority alt="banner sample" />
+                    <div>
+                        <picture>
+                            <source srcSet="/bannerSampleSmall.png" media="(max-width: 600px)" />
+
+                            <Image src="/bannerSample.png" fill priority alt="banner sample" />
+                        </picture>
+                    </div>
                 </div>
 
                 <div className={styles.mainSection}>

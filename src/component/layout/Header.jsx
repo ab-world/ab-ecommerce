@@ -1,8 +1,8 @@
 'use client';
+import styles from './Header.module.scss';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './Header.module.scss';
 import { IconSearch, IconXboxXFilled, IconHeart, IconShoppingCart, IconMenu2 } from '@tabler/icons-react';
 
 const NAV_ITEMS = [
@@ -37,29 +37,31 @@ const Header = () => {
 
                 <div className={styles.midSection}>
                     <div className={styles.leftView}>
-                        <Link href={'/'}>
-                            <Image src="/ablogo.png" width={50} height={50} priority alt="ab logo" />
-                        </Link>
+                        <div className={styles.imgWrapper}>
+                            <Link href={'/'}>
+                                <Image src="/ablogo.png" fill priority alt="ab logo" />
+                            </Link>
+                        </div>
                     </div>
 
                     <div className={styles.centerView}>
                         <input type="text" value={keyword} onChange={(e) => setKeywrod(e.target.value)} />
                         {keyword.length > 0 && (
                             <button className={styles.clearBtn} onClick={onClickClearBtn}>
-                                <IconXboxXFilled size={18} />
+                                <IconXboxXFilled />
                             </button>
                         )}
                         <button className={styles.searchBtn} onClick={onClickSearchBtn}>
-                            <IconSearch size={24} />
+                            <IconSearch />
                         </button>
                     </div>
 
                     <div className={styles.rightView}>
                         <Link href={'/wish'}>
-                            <IconHeart size={28} />
+                            <IconHeart />
                         </Link>
                         <Link href={'/cart'}>
-                            <IconShoppingCart size={28} />
+                            <IconShoppingCart />
                         </Link>
                     </div>
                 </div>
@@ -67,8 +69,8 @@ const Header = () => {
                 <div className={styles.btmSection}>
                     <div className={styles.leftView}>
                         <button className={styles.hamburgerBtn} onClick={onClickCategoryBtn}>
-                            <IconMenu2 size={28} style={{ marginRight: '4px' }} />
-                            카테고리
+                            <IconMenu2 />
+                            <span>카테고리</span>
                         </button>
                     </div>
 
