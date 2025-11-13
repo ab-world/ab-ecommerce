@@ -513,6 +513,7 @@
                                 .reviewContent {
                                     margin-top: 8px;
                                     font-size: 13px;
+                                    white-space: pre-line;
                                 }
 
                                 .reviewImg {
@@ -597,6 +598,10 @@
                                         height: 20px;
                                         margin-right: 8px;
                                     }
+
+                                    p {
+                                        white-space: pre-line;
+                                    }
                                 }
 
                                 .answerContent {
@@ -607,6 +612,10 @@
                                         width: 20px;
                                         height: 20px;
                                         margin-right: 8px;
+                                    }
+
+                                    p {
+                                        white-space: pre-line;
                                     }
 
                                     .answerRegDate {
@@ -1167,6 +1176,7 @@
                                     .reviewContent {
                                         margin-top: 8px;
                                         font-size: 13px;
+                                        white-space: pre-line;
                                     }
 
                                     .reviewImg {
@@ -1251,6 +1261,10 @@
                                             height: 20px;
                                             margin-right: 8px;
                                         }
+
+                                        p {
+                                            white-space: pre-line;
+                                        }
                                     }
 
                                     .answerContent {
@@ -1261,6 +1275,10 @@
                                             width: 20px;
                                             height: 20px;
                                             margin-right: 8px;
+                                        }
+
+                                        p {
+                                            white-space: pre-line;
                                         }
 
                                         .answerRegDate {
@@ -1835,6 +1853,7 @@
                                     .reviewContent {
                                         margin-top: 8px;
                                         font-size: 13px;
+                                        white-space: pre-line;
                                     }
 
                                     .reviewImg {
@@ -1919,6 +1938,10 @@
                                             height: 20px;
                                             margin-right: 8px;
                                         }
+
+                                        p {
+                                            white-space: pre-line;
+                                        }
                                     }
 
                                     .answerContent {
@@ -1929,6 +1952,10 @@
                                             width: 20px;
                                             height: 20px;
                                             margin-right: 8px;
+                                        }
+
+                                        p {
+                                            white-space: pre-line;
                                         }
 
                                         .answerRegDate {
@@ -2252,7 +2279,7 @@
                                     width: 40px;
                                     height: 40px;
                                     border: 1px solid var(--darkGrey);
-                                    border-radius: 8px;
+                                    border-radius: 4px;
                                     color: var(--primaryMain);
 
                                     &.active {
@@ -2282,7 +2309,7 @@
                                 .cartBtn {
                                     flex: 1;
                                     border: 1px solid var(--primaryMain);
-                                    border-radius: 8px;
+                                    border-radius: 4px;
                                     color: var(--primaryMain);
                                     font-size: 14px;
                                     font-weight: bold;
@@ -2292,7 +2319,7 @@
                                     background-color: var(--primaryMain);
                                     flex: 1;
                                     border: 1px solid var(--primaryMain);
-                                    border-radius: 8px;
+                                    border-radius: 4px;
                                     color: var(--white);
                                     font-size: 14px;
                                     font-weight: bold;
@@ -2318,11 +2345,18 @@
                         flex: 1;
                         border: 1px solid var(--border);
                         font-size: 12px;
+                        font-weight: 500;
 
                         &.active {
                             background-color: var(--background);
                             border-bottom: none;
                             color: var(--primaryMain);
+                        }
+
+                        &:nth-child(2) {
+                            font-size: 10px;
+                            padding: 4px;
+                            word-break: keep-all;
                         }
 
                         &:not(:first-child) {
@@ -2505,6 +2539,7 @@
                                     .reviewContent {
                                         margin-top: 8px;
                                         font-size: 13px;
+                                        white-space: pre-line;
                                     }
 
                                     .reviewImg {
@@ -2591,6 +2626,10 @@
                                             height: 20px;
                                             margin-right: 8px;
                                         }
+
+                                        p {
+                                            white-space: pre-line;
+                                        }
                                     }
 
                                     .answerContent {
@@ -2601,6 +2640,10 @@
                                             width: 20px;
                                             height: 20px;
                                             margin-right: 8px;
+                                        }
+
+                                        p {
+                                            white-space: pre-line;
                                         }
 
                                         .answerRegDate {

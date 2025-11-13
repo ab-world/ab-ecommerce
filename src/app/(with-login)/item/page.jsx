@@ -4,85 +4,16 @@ import styles from './page.module.scss';
 import { useState, useEffect, useRef, Fragment } from 'react';
 import Image from 'next/image';
 import { IconHeart, IconCaretDownFilled, IconX, IconPlus, IconMinus, IconLetterQ, IconLetterA } from '@tabler/icons-react';
-import { HEADER_1280, HEADER_900, HEADER_600 } from '@/const/variable';
+import { HEADER_1280, HEADER_900 } from '@/const/variable';
 import { showErrorNoti, showSuccessNoti } from '@/util/noti';
-
-const SAMPLE_DATA = {
-    info: {
-        mainImageUrl: '/itemSample.jpg',
-        subImageUrls: ['/itemSample.jpg', '/itemSample.jpg', '/itemSample.jpg'],
-        labels: ['AB Only'],
-        itemName: '[Kiri] 스틱 치즈 케이크 3종 (50gX8개입) (택1)',
-        itemDetail: '깔끔하게 즐기는 녹진한 풍미',
-        price: 14407,
-        originPrice: 16950,
-        details: [
-            { title: '배송', content: '일반배송' },
-            { title: '판매자', content: '에이비' },
-            { title: '포장타입', content: '냉동 (종이포장)' },
-            { title: '판매단위', content: 'BOX' },
-            { title: '중량/용량', content: '50g/8개입' }
-        ],
-        optionList: [
-            { optionSeq: 1, optionName: '쿠키앤크림', price: 14407 },
-            { optionSeq: 2, optionName: '말차', price: 14407 },
-            { optionSeq: 3, optionName: '초코', price: 14407 }
-        ],
-        isWish: 0
-    },
-    description: {
-        detail: {
-            imageUrl: '/itemDescriptionSample.jpg',
-            imageUrl2: '/itemDetailSample.jpg'
-        },
-        sellerInfos: [
-            { title: '상호/대표자', content: '(주)에이비/류정' },
-            { title: '사업장 소재지', content: '서울 강서구 화곡로68길 15, 가양아벨테크노지식산업센터 406' },
-            { title: '연락처', content: '070-4077-0265' },
-            { title: '이메일', content: 'support@abworld.co.kr' },
-            { title: '사업자번호', content: '667-88-02513' },
-            { title: '통신판매업 신고번호', content: '제2024-서울강서-2501호' }
-        ],
-        itemInfos: [
-            { title: '제품명', content: '상품설명 및 상품이미지 참조' },
-            { title: '식품의 유형', content: '상품설명 및 상품이미지 참조' },
-            { title: '생산자 및 소재지 (수입품의 경우 생상자, 수입자 및 제조국)', content: '상품설명 및 상품이미지 참조' },
-            { title: '제조연월일, 소비기한 또는 품질유지기한', content: '상품설명 및 상품이미지 참조' },
-            { title: '포장단위별 내용물의 용량', content: '상품설명 및 상품이미지 참조' },
-            { title: '원재료명 (｢농수산물의 원산지 표시 등에 관한 법률｣에 따른 원산지 표시 포함) 및 함량(원재료 함량 표시대상 식품에 한함)', content: '상품설명 및 상품이미지 참조' },
-            { title: '영양성분 (영양성분 표시대상 식품에 한함)', content: '상품설명 및 상품이미지 참조' }
-        ]
-    },
-    reviews: [
-        {
-            userName: '신*수',
-            itemName: '[Kiri] 스틱 치즈 케이크 3종 (50gX8개입) (택1)',
-            optionName: '쿠키앤크림',
-            content: '녹차맛 사고싶은데 없어서 쿠키앤크림 샀어요',
-            imageUrl: '/itemSample.jpg',
-            regDate: '2025-11-10'
-        }
-    ],
-    inquirys: [
-        {
-            title: '오배송',
-            inquiryContent: '녹차맛 샀는데 왜 쿠키맛이 왔죠?;;',
-            userName: '신*수',
-            inquiryRegDate: '2025-10-29',
-            inquiryStatus: 1,
-            inquiryStatusName: '답변대기',
-            answerContent: '잘못보냈습니다~ 죄송합니다~',
-            answerRegDate: '2025-11-01'
-        }
-    ]
-};
+import { SAMPLE_ITEM } from '@/const/sample';
 
 export default function ItemDetail(props) {
     const containerRef = useRef(null);
     const [currentID, setCurrentID] = useState(0);
     const [currentWidth, setCurrentWidth] = useState(0);
 
-    const [itemInfo, setItemInfo] = useState(SAMPLE_DATA); // 상품 정보
+    const [itemInfo, setItemInfo] = useState(SAMPLE_ITEM); // 상품 정보
     const [selectedOptionList, setSelectedOptionList] = useState([]); // 선택된 옵션 리스트
 
     const [selectedInquiry, setSelectedInquiry] = useState(-1); // 선택된 문의
@@ -106,12 +37,14 @@ export default function ItemDetail(props) {
     };
 
     const handleScroll = () => {
+        if (!containerRef.current) return;
+
         const id1 = containerRef.current.querySelector('#description').getBoundingClientRect();
         const id2 = containerRef.current.querySelector('#notice').getBoundingClientRect();
         const id3 = containerRef.current.querySelector('#review').getBoundingClientRect();
         const id4 = containerRef.current.querySelector('#inquiry').getBoundingClientRect();
 
-        const headerHeight = currentWidth >= 1280 ? HEADER_1280 : currentWidth >= 900 ? HEADER_900 : HEADER_600;
+        const headerHeight = currentWidth >= 1280 ? HEADER_1280 : HEADER_900;
 
         const id1ScrollY = id1.y - headerHeight;
         const id2ScrollY = id2.y - headerHeight;
@@ -128,7 +61,7 @@ export default function ItemDetail(props) {
     const onClickTab = (id) => {
         const target = containerRef.current.querySelector(id).getBoundingClientRect();
 
-        const headerHeight = currentWidth >= 1280 ? HEADER_1280 : currentWidth >= 900 ? HEADER_900 : HEADER_600;
+        const headerHeight = currentWidth >= 1280 ? HEADER_1280 : HEADER_900;
 
         window.scrollTo({ top: target.top + window.scrollY - headerHeight + 1 });
     };

@@ -1,7 +1,7 @@
 // 상품리스트 페이지
 import styles from './page.module.scss';
 import Image from 'next/image';
-import ItemListView from '@/component/common/ItemListView';
+import ItemListView from '@/component/common/item/ItemListView';
 
 export default function Items(props) {
     return (
@@ -10,7 +10,7 @@ export default function Items(props) {
                 {/* <div className={styles.bannerSection}>
                     <div>
                         <picture>
-                            <source srcSet="/bannerSampleSmall.png" media="(max-width: 600px)" />
+                            <source srcSet="/bannerSampleSmall.png" media="(max-width: 900px)" />
 
                             <Image src="/bannerSample.png" fill priority alt="banner sample" />
                         </picture>
@@ -21,7 +21,7 @@ export default function Items(props) {
                     <ItemListView
                         items={Array(40)
                             .fill(0)
-                            .map((item, itemIdx) => itemIdx + 1)}
+                            .map((item, index) => index + 1)}
                     />
                 </div>
             </main>

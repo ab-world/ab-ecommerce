@@ -1,0 +1,649 @@
+.container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+    height: 100%;
+    min-height: 460px;
+
+    .itemInfoView {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+
+        .itemImg {
+            position: relative;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        p {
+            margin-left: 16px;
+            font-size: 18px;
+        }
+    }
+
+    .optionView {
+        position: relative;
+        margin-top: 20px;
+
+        select {
+            -webkit-appearance: none; /* Chrome, Safari 등 */
+            -moz-appearance: none; /* Firefox */
+            appearance: none;
+            background-color: var(--background);
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid var(--darkGrey);
+            outline: none;
+            color: var(--darkGrey);
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            transform: translateY(-50%);
+        }
+    }
+
+    .selectedOptionView {
+        overflow: auto;
+        flex: 1;
+        margin-top: 20px;
+
+        .selectedOptionItem {
+            margin-bottom: -1px;
+            padding: 16px;
+            border: 1px solid var(--border);
+
+            .topView {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                p {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+
+                button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 30px;
+                    height: 30px;
+
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+
+            .btmView {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 12px;
+
+                .countView {
+                    display: flex;
+                    height: 30px;
+                    align-items: center;
+
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+                        border: 1px solid var(--border);
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 40px;
+                        height: 30px;
+                        border: 1px solid var(--border);
+                        margin-left: -1px;
+                        margin-right: -1px;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+
+                .optionPriceView {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .totalAmtView {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        .label {
+        }
+
+        .price {
+            color: var(--errorMain);
+            font-size: 18px;
+            font-weight: bold;
+
+            span {
+                margin-left: 4px;
+                color: var(--black);
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .container {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 460px;
+        height: 100%;
+        min-height: 460px;
+
+        .itemInfoView {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+
+            .itemImg {
+                position: relative;
+                overflow: hidden;
+                width: 60px;
+                height: 60px;
+                border-radius: 8px;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            p {
+                margin-left: 16px;
+                font-size: 18px;
+            }
+        }
+
+        .optionView {
+            position: relative;
+            margin-top: 20px;
+
+            select {
+                -webkit-appearance: none; /* Chrome, Safari 등 */
+                -moz-appearance: none; /* Firefox */
+                appearance: none;
+                background-color: var(--background);
+                width: 100%;
+                height: 40px;
+                padding: 0 10px;
+                border: 1px solid var(--darkGrey);
+                outline: none;
+                color: var(--darkGrey);
+            }
+
+            svg {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                width: 24px;
+                height: 24px;
+                transform: translateY(-50%);
+            }
+        }
+
+        .selectedOptionView {
+            overflow: auto;
+            flex: 1;
+            margin-top: 20px;
+
+            .selectedOptionItem {
+                margin-bottom: -1px;
+                padding: 16px;
+                border: 1px solid var(--border);
+
+                .topView {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+
+                        svg {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+
+                .btmView {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 12px;
+
+                    .countView {
+                        display: flex;
+                        height: 30px;
+                        align-items: center;
+
+                        button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            border: 1px solid var(--border);
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 40px;
+                            height: 30px;
+                            border: 1px solid var(--border);
+                            margin-left: -1px;
+                            margin-right: -1px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .optionPriceView {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .totalAmtView {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+
+            .label {
+            }
+
+            .price {
+                color: var(--errorMain);
+                font-size: 18px;
+                font-weight: bold;
+
+                span {
+                    margin-left: 4px;
+                    color: var(--black);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 460px;
+        height: 100%;
+        min-height: 460px;
+
+        .itemInfoView {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+
+            .itemImg {
+                position: relative;
+                overflow: hidden;
+                width: 60px;
+                height: 60px;
+                border-radius: 8px;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            p {
+                margin-left: 16px;
+                font-size: 18px;
+            }
+        }
+
+        .optionView {
+            position: relative;
+            margin-top: 20px;
+
+            select {
+                -webkit-appearance: none; /* Chrome, Safari 등 */
+                -moz-appearance: none; /* Firefox */
+                appearance: none;
+                background-color: var(--background);
+                width: 100%;
+                height: 40px;
+                padding: 0 10px;
+                border: 1px solid var(--darkGrey);
+                outline: none;
+                color: var(--darkGrey);
+            }
+
+            svg {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                width: 24px;
+                height: 24px;
+                transform: translateY(-50%);
+            }
+        }
+
+        .selectedOptionView {
+            overflow: auto;
+            flex: 1;
+            margin-top: 20px;
+
+            .selectedOptionItem {
+                margin-bottom: -1px;
+                padding: 16px;
+                border: 1px solid var(--border);
+
+                .topView {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+
+                        svg {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+
+                .btmView {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 12px;
+
+                    .countView {
+                        display: flex;
+                        height: 30px;
+                        align-items: center;
+
+                        button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            border: 1px solid var(--border);
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 40px;
+                            height: 30px;
+                            border: 1px solid var(--border);
+                            margin-left: -1px;
+                            margin-right: -1px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .optionPriceView {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .totalAmtView {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+
+            .label {
+            }
+
+            .price {
+                color: var(--errorMain);
+                font-size: 18px;
+                font-weight: bold;
+
+                span {
+                    margin-left: 4px;
+                    color: var(--black);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: calc(100vw - 24px - 32px);
+        height: 100%;
+        min-height: 460px;
+
+        .itemInfoView {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+
+            .itemImg {
+                flex-shrink: 0;
+                position: relative;
+                overflow: hidden;
+                width: 50px;
+                height: 50px;
+                border-radius: 6px;
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            p {
+                margin-left: 16px;
+                font-size: 14px;
+            }
+        }
+
+        .optionView {
+            position: relative;
+            margin-top: 16px;
+
+            select {
+                -webkit-appearance: none; /* Chrome, Safari 등 */
+                -moz-appearance: none; /* Firefox */
+                appearance: none;
+                background-color: var(--background);
+                width: 100%;
+                height: 32px;
+                padding: 0 6px;
+                border: 1px solid var(--darkGrey);
+                outline: none;
+                color: var(--darkGrey);
+                font-size: 14px;
+            }
+
+            svg {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                width: 24px;
+                height: 24px;
+                transform: translateY(-50%);
+            }
+        }
+
+        .selectedOptionView {
+            margin-top: 16px;
+
+            .selectedOptionItem {
+                margin-bottom: -1px;
+                padding: 12px;
+                border: 1px solid var(--border);
+
+                .topView {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    p {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 24px;
+                        height: 24px;
+
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+
+                .btmView {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 8px;
+
+                    .countView {
+                        display: flex;
+                        height: 24px;
+                        align-items: center;
+
+                        button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 24px;
+                            height: 24px;
+                            border: 1px solid var(--border);
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 32px;
+                            height: 24px;
+                            border: 1px solid var(--border);
+                            margin-left: -1px;
+                            margin-right: -1px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    }
+
+                    .optionPriceView {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .totalAmtView {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+
+            .label {
+            }
+
+            .price {
+                color: var(--errorMain);
+                font-size: 18px;
+                font-weight: bold;
+
+                span {
+                    margin-left: 4px;
+                    color: var(--black);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

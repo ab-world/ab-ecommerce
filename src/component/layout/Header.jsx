@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconSearch, IconXboxXFilled, IconHeart, IconShoppingCart, IconMenu2 } from '@tabler/icons-react';
+import CategoryModal from '@/modal/CategoryModal';
 
 const NAV_ITEMS = [
     { label: '신상품', url: '/items' },
@@ -14,6 +15,7 @@ const NAV_ITEMS = [
 ];
 
 const Header = () => {
+    const [categoryModal, setCategoryModal] = useState(false);
     const [keyword, setKeywrod] = useState('');
 
     const onClickClearBtn = () => {
@@ -22,10 +24,17 @@ const Header = () => {
 
     const onClickSearchBtn = () => {};
 
-    const onClickCategoryBtn = () => {};
+    // 카테고리 버튼 click
+    const onClickCategoryBtn = (e) => {
+        e.stopPropagation();
+
+        setCategoryModal(true);
+    };
 
     return (
         <div className={styles.container}>
+            {categoryModal && <CategoryModal open={categoryModal} setOpen={(open) => setCategoryModal(open)} />}
+
             <div className={styles.wrapper}>
                 <div className={styles.topSection}>
                     <Link className={styles.point} href={'signup'}>

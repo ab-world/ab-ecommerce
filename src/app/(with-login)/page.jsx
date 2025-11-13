@@ -2,7 +2,7 @@
 import styles from './page.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
-import ItemListView from '@/component/common/ItemListView';
+import ItemListView from '@/component/common/item/ItemListView';
 import { IconChevronRight } from '@tabler/icons-react';
 
 export default function Home(props) {
@@ -29,7 +29,7 @@ export default function Home(props) {
                         subTitle={'꼭 담아야 할 추천 특가템 최대 60% OFF'}
                         items={Array(40)
                             .fill(0)
-                            .map((item, itemIdx) => itemIdx + 1)}
+                            .map((item, index) => index + 1)}
                     />
                 </div>
             </main>
