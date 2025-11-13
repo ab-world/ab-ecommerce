@@ -2,8 +2,8 @@
 import styles from './page.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconChevronRight } from '@tabler/icons-react';
 import ItemListView from '@/component/common/ItemListView';
+import { IconChevronRight } from '@tabler/icons-react';
 
 export default function Home(props) {
     return (
@@ -12,7 +12,7 @@ export default function Home(props) {
                 <div className={styles.bannerSection}>
                     <div>
                         <picture>
-                            <source srcSet="/bannerSampleSmall.png" media="(max-width: 600px)" />
+                            <source srcSet="/bannerSampleSmall.png" media="(max-width: 900px)" />
 
                             <Image src="/bannerSample.png" fill priority alt="banner sample" />
                         </picture>

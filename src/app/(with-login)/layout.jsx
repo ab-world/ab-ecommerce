@@ -1,4 +1,4 @@
-// with-login 레이아웃
+// home 레이아웃
 import '@/style/globals.scss';
 import Header from '@/component/layout/Header';
 import Footer from '@/component/layout/Footer';
