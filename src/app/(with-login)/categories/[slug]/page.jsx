@@ -1,4 +1,4 @@
-// 상품리스트 페이지
+// 카테고리 페이지
 'use client';
 import styles from './page.module.scss';
 import { useState, useEffect } from 'react';

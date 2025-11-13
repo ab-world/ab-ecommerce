@@ -1,6 +1,6 @@
 'use client';
 import '@/style/globals.scss';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import NotiStackProvider from '@/component/common/snackbar/NotiStackProvider';
 
@@ -12,9 +12,9 @@ export default function RootLayout({ children }) {
     }, [pathname]);
 
     return (
-        <>
+        <Suspense fallback={<div>Loading...</div>}>
             {children}
             <NotiStackProvider />
-        </>
+        </Suspense>
     );
 }
