@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { store } from '@/redux/store';
 import { initSignData } from '@/redux/slices/sign';
 import { JWT_TOKEN_ID } from '@/const/variable';
 import { countryCode } from '@/util/util';
@@ -9,10 +8,6 @@ const apiFunction = (method) => {
     return async (uri, { body = {}, header = {}, token = true } = {}) => {
         const jwt = localStorage.getItem(JWT_TOKEN_ID);
         const config = JSON.parse(localStorage.getItem(JWT_TOKEN_ID + '-config'));
-        const pathnameSplit = location.pathname.split('/');
-        const pgmId = pathnameSplit[pathnameSplit.length - 1];
-        const tabList = store.getState().system.tabManager;
-        const pgmSeq = tabList.find((row) => row.id == pgmId)?.seq || 0;
         const browserId = localStorage.getItem(JWT_TOKEN_ID + '-browser');
         const companyIndex = Number(sessionStorage.getItem(JWT_TOKEN_ID + '-companyIndex') || 0);
 
@@ -20,7 +15,6 @@ const apiFunction = (method) => {
             let headers = {
                 Accept: 'application/json',
                 'Country-Code': config ? config.countryCode : countryCode,
-                'Pgm-Seq': pgmSeq,
                 'Browser-Id': browserId,
                 ...header
             };
@@ -31,11 +25,11 @@ const apiFunction = (method) => {
 
             headers.companyIndex = companyIndex;
 
-            const url = uri.indexOf('http') > -1 ? uri : process.env.REACT_APP_API_URL + uri;
+            const url = uri.indexOf('http') > -1 ? uri : process.env.NEXT_PUBLIC_API_URL + uri;
 
             const result = await axios({ method, url, data: body, headers });
 
-            return result;
+            return result.data;
         } catch (err) {
             if (err.response) {
                 if (err.response.status === 400) {

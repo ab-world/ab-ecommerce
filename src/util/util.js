@@ -98,6 +98,10 @@ export const jsonParse = (text) => {
     }
 };
 
-const countryQuery = location.pathname.split('/')[1];
+let countryQuery = null;
+
+if (typeof window == 'object') {
+    countryQuery = window.location.pathname.split('/')[1];
+}
 
 export const countryCode = countryQuery == 'kr' || countryQuery == 'cn' || countryQuery == 'en' ? countryQuery : null;

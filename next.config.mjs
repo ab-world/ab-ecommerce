@@ -13,6 +13,16 @@ const nextConfig = {
     reactCompiler: true,
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/style')]
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '2203',
+                pathname: '/**'
+            }
+        ]
     }
 };
 
