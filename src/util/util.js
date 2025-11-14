@@ -97,3 +97,7 @@ export const jsonParse = (text) => {
         return {}; // 또는 {} 등 기본값
     }
 };
+
+const countryQuery = location.pathname.split('/')[1];
+
+export const countryCode = countryQuery == 'kr' || countryQuery == 'cn' || countryQuery == 'en' ? countryQuery : null;

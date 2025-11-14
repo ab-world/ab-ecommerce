@@ -2,6 +2,8 @@
 import '@/style/globals.scss';
 import { Suspense, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { Provider } from 'react-redux';
+import { store } from '@/redux/store';
 import NotiStackProvider from '@/component/common/snackbar/NotiStackProvider';
 
 export default function RootLayout({ children }) {
@@ -13,7 +15,7 @@ export default function RootLayout({ children }) {
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            {children}
+            <Provider store={store}>{children}</Provider>
             <NotiStackProvider />
         </Suspense>
     );
