@@ -1,6 +1,6 @@
 'use client';
 import '@/style/globals.scss';
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
@@ -21,9 +21,11 @@ export default function RootLayout({ children }) {
     }, [pathname]);
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Provider store={store}>{children}</Provider>
-            <NotiStackProvider />
-        </Suspense>
+        <html lang="ko">
+            <body>
+                <Provider store={store}>{children}</Provider>
+                <NotiStackProvider />
+            </body>
+        </html>
     );
 }
