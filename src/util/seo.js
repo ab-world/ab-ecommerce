@@ -3,7 +3,7 @@ import { META } from '@/const/seo';
 export const getMetadata = (metadataProps) => {
     const { title, description, asPath, ogImage } = metadataProps || {};
 
-    const TITLE = title ? `${title} | 반디부디` : META.title;
+    const TITLE = title ? `${title} | AB마켓` : META.title;
     const DESCRIPTION = description || META.description;
     const PAGE_URL = asPath ? asPath : '';
     const OG_IMAGE = ogImage || META.ogImage;
@@ -16,6 +16,15 @@ export const getMetadata = (metadataProps) => {
         title: TITLE,
         description: DESCRIPTION,
         keywords: [...META.keyword],
+        // icons: {
+        //     icon: [
+        //         { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+        //         { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+        //         { url: '/favicon-64x64.png', sizes: '64x64', type: 'image/png' },
+        //         { url: '/favicon-128x128.png', sizes: '128x128', type: 'image/png' },
+        //         { url: '/favicon.ico', sizes: 'any' }
+        //     ]
+        // },
         openGraph: {
             title: TITLE,
             description: DESCRIPTION,

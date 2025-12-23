@@ -7,7 +7,7 @@ export default function Sample(props) {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
-                <Image src="/ablogo.png" width={50} height={50} priority alt="ab logo" />
+                <Image src="/img/ablogo.png" width={50} height={50} priority alt="ab logo" />
 
                 <div className={styles.mainSection}>샘플</div>
             </main>
@@ -15,6 +15,6 @@ export default function Sample(props) {
     );
 }
 
-export const generateMetadata = async ({ params: { username } }) => {
-    // return getMetadata({ title: `반짝반짝 빛날 ${username}님의 인생지도`, asPath: `/home/${username}` });
+export const generateMetadata = async ({ params }) => {
+    // return getMetadata({ asPath: `/sample` });
 };

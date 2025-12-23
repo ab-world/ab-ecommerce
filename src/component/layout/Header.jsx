@@ -48,7 +48,7 @@ const Header = () => {
                     <div className={styles.leftView}>
                         <div className={styles.imgWrapper}>
                             <Link href={'/'}>
-                                <Image src="/ablogo.png" fill priority alt="ab logo" />
+                                <Image src="/img/ablogo.png" fill priority alt="ab logo" />
                             </Link>
                         </div>
                     </div>

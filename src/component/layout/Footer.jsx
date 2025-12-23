@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className={styles.footerSection}>
                     <div className={styles.infoView}>
                         <div className={styles.logoView}>
-                            <Image src="/ablogo.png" fill priority alt="ab logo" />
+                            <Image src="/img/ablogo.png" fill priority alt="ab logo" />
                         </div>
 
                         <div className={styles.textView}>
